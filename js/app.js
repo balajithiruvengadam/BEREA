@@ -45,19 +45,23 @@ var onDeviceReady = function() {
     var handleOrientation = function() {
         if (orientation == 0) {
             if(MyCampusApp.homeScreenDisplayed) {
-                setTimeout(function(){MyCampusApp.homeRoute.reload()},500);
+                MyCampusApp.currentPage = 1;
+                setTimeout(function(){MyCampusApp.homeRoute.reload()},300);
             }
         } else if (orientation == 90) {
             if(MyCampusApp.homeScreenDisplayed) {
-                setTimeout(function(){MyCampusApp.homeRoute.reload()},500);
+                MyCampusApp.currentPage = 1;
+                setTimeout(function(){MyCampusApp.homeRoute.reload()},300);
             }
         } else if (orientation == -90) {
             if(MyCampusApp.homeScreenDisplayed) {
-                setTimeout(function(){MyCampusApp.homeRoute.reload()},500);
+                MyCampusApp.currentPage = 1;
+                setTimeout(function(){MyCampusApp.homeRoute.reload()},300);
             }
         } else if (orientation == 180) {
             if(MyCampusApp.homeScreenDisplayed) {
-                setTimeout(function(){MyCampusApp.homeRoute.reload()},500);
+                MyCampusApp.currentPage = 1;
+                setTimeout(function(){MyCampusApp.homeRoute.reload()},300);
             }
         } else {}
     }
@@ -85,6 +89,7 @@ var MyCampusApp = {
     modalDialogDisplayed: false,
     homeScreenDisplayed : true,
     rootScope : null,
+    currentPage : 1,
     //debugMode: window.tinyHippos != undefined,
 
     init : function(){
@@ -529,6 +534,8 @@ var MyCampusApp = {
             icon = dockIcons[_i];
             _results.push(dock.append(icon.markup));
         }
+        
+        /* Commenting for icon refresh during metadata update start.(Nick)
         var homedata = $("#homedata");
         homedata.html("");
         var iconwidth = 64;
@@ -559,6 +566,9 @@ var MyCampusApp = {
             pages: true
         });
         //End AK
+         Commenting for icon refresh during metadata update end*/
+         
+         
         /*
          if(window.device) {
          $rootScope.brandingUrl = MyCampusApp.config.tenantFolder(window.device, tenant) + "branding?q=" + Math.random();
