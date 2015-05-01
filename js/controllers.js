@@ -21,6 +21,7 @@ controller('MyCtrl1', [function () {
                                                                        function (isAvailable) {
                                                                        if(isAvailable){window.plugin.email.open({
                                                                                                                 to: [$rootScope.metadata.reportissueEmail],
+                                                                                                                cc: ["support@kryptosmobile.com"],
                                                                                                                 subject: 'myCampus Mobile ( ' + $rootScope.tenant + ' ) Issue reporting',
                                                                                                                 body: '\n\n\n\n\n\n\n<h3>Device Details</h3><br/><p>' +
                                                                                                                 'Platform : ' + window.device.platform + '<br/>' +
@@ -49,6 +50,7 @@ controller('MyCtrl1', [function () {
                                                                         function (isAvailable) {
                                                                         if(isAvailable){window.plugin.email.open({
                                                                                                                  to: [$rootScope.metadata.feedbackEmail],
+                                                                                                                 cc: ["support@kryptosmobile.com"],
                                                                                                                  subject: 'myCampus Mobile ( ' + $rootScope.tenant + ' ) Feedback',
                                                                                                                  body: '\n\n\n\n\n\n\n<h3>Device Details</h3><br/><p>' +
                                                                                                                  'Platform : ' + window.device.platform + '<br/>' +
@@ -103,6 +105,7 @@ controller('MyCtrl1', [function () {
                           };
                           var iabClose = function(data) {
                           window.location.href = "index.html#login";
+                           $.unblockUI();
                           };
                           iabRef.addEventListener("exit", iabClose);
                           var loadStop = function(data) {
@@ -115,11 +118,11 @@ controller('MyCtrl1', [function () {
                           $("#loginUsername").focus();
                           $rootScope.login = function () {
                           if ($("#loginUsername").val().length == 0) {
-                          alert('Please enter your username.');
+                          navigator.notification.alert('Please enter your username.');
                           return false;
                           }
                           if ($("#loginPassword").val().length == 0) {
-                          alert('Please enter your password.');
+                          navigator.notification.alert('Please enter your password.');
                           return false;
                           }
                           var username = $("#loginUsername").val();
@@ -617,11 +620,11 @@ controller('MyCtrl1', [function () {
                                
                                $scope.login = function() {
                                if ($("#loginUsername").val().length == 0) {
-                               alert('Please enter your username.');
+                               navigator.notification.alert('Please enter your username.');
                                return false;
                                }
                                if ($("#loginPassword").val().length == 0) {
-                               alert('Please enter your password.');
+                               navigator.notification.alert('Please enter your password.');
                                return false;
                                }
                                var username = $("#loginUsername").val();
@@ -729,7 +732,7 @@ controller('MyCtrl1', [function () {
                            }
                            }
                            }catch(e) {
-                           alert ("Exception : " + e);
+                          // alert ("Exception : " + e);
                            }
                            }])
 .controller('ApplicationsCtrl', ['$rootScope', '$scope', '$http', '$location', '$window', '$sce', '$route', '$compile','$routeParams',
@@ -751,7 +754,7 @@ controller('MyCtrl1', [function () {
                                          $.unblockUI();
                                          }).error (function(edata) {
                                                    $.unblockUI();
-                                                   alert ("Error in appFeatures : " + edata);
+                                                   //alert ("Error in appFeatures : " + edata);
                                                    });
                                  }
                                  $scope.loadApplications($.jStorage.get('ktoken'));

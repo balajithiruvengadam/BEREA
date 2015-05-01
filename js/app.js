@@ -163,6 +163,34 @@ var MyCampusApp = {
             }).error(function(data){
                 });
         }
+        
+        //Store update bug fix start (Nick)
+        else {
+			if(!$rootScope.imageoptimized) {
+				$http.get("default-metadata.json").success(function(data){
+                                                           $rootScope.imageoptimized = true;
+                                                           if(data.version >= storedMetadata.version) {
+                                                           var tenantid = data.tenantid
+                                                           $.jStorage.set(tenantid + '-metadata', data);
+                                                           MyCampusApp.config.tenant = tenantid;
+                                                           $rootScope.tenant = tenantid;
+                                                           $.jStorage.set('tenant', tenantid);
+                                                           storedMetadata = data;
+                                                           $rootScope.brandingUrl = storedMetadata.brandingurl + "?q=" + Math.random();
+                                                           $rootScope.backgroundUrl = storedMetadata.backgroundurl + "?q=" + Math.random();
+                                                           var message = '<div style="margin: auto; vertical-align: middle; display: inline-block;position:fixed;left:0px;right:0px;"><i class="icon-cog icon-spin icon-4x"></i><h3 style="color:white;">Starting up</h3></div>';
+                                                           $.blockUI({message : message});
+                                                           setTimeout(function() {
+                                                                      $.unblockUI();
+                                                                      $route.reload();
+                                                                      },5000);
+                                                           }
+                                                           }).error(function(data){
+                                                                    });
+			}
+		}
+        //Store update bug fix end (Nick)
+        
         if(storedMetadata) {
             if($rootScope.loggedin) {
                 if($rootScope.userroles) {
