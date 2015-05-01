@@ -7,6 +7,13 @@
 .help-img {
     box-shadow:0 0 10px #000;
 }
+
+div.list-group-item.active{
+    color:#fff;
+    background:#083c69 !important;
+}
+
+
 </style>
 <div class="scrollable">
     <div class="scrollable-content">
@@ -24,7 +31,7 @@
                     <button class="btn btn-success" ng-click="gohome();">Press Me</button> to go to Home screen.
                 </div>
             </div>
-            <a class="list-group-item active">Navigation - Home screen</a>
+            <div class="list-group-item active">Navigation - Home screen</div>
             <div class="list-group-item">
                 <p class="help-text">
                 Tap on the left top left corner to launch the side bar navigation.
@@ -42,7 +49,7 @@
                 <img class="help-img" src="img/help2.png" style="width:100%;"/>
             </div>
             
-            <a class="list-group-item active">Launching the Apps</a>
+            <div class="list-group-item active">Launching the Apps</div>
             <div class="list-group-item">
                 <p class="help-text">
                 <h3>Two ways to launch the apps<br></h3>
@@ -51,14 +58,14 @@
                 <!--<i class="fa fa-check"></i>&nbsp;Dock icon<br>-->
                 </p>
             </div>
-            <a class="list-group-item active">Report an issue</a>
+            <div class="list-group-item active">Report an issue</div>
             <div class="list-group-item">
                 <p class="help-text">
                 If you encounter any issues with the app, please use the 'Report Issue' menu under the sidebar to report the same
                 in an email. Please attach screenshots if any.
                 </p>
             </div>
-            <a class="list-group-item active">Troubleshooting</a>
+            <div class="list-group-item active">Troubleshooting</div>
             <div class="list-group-item">
                 <p class="help-text">
                 If you encounter issues related to the app icons not loading after the metadata update, use
