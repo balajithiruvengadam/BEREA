@@ -30,7 +30,7 @@
         <preference name="StatusBarStyle" value="lightcontent" />
         <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
         
-        <preference name="android-windowSoftInputMode" value="adjustResize|adjustPan" />
+        <!--<preference name="android-windowSoftInputMode" value="adjustResize|adjustPan" />-->
         
         <icon src="icon.png" />
         <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
@@ -152,13 +152,13 @@
             </array>
         </gap:config-file>
         
-        <gap:config-file platform="ios" parent="UISupportedInterfaceOrientations~ipad" overwrite="false">
+        <!--<gap:config-file platform="ios" parent="UISupportedInterfaceOrientations~ipad" overwrite="false">
             <array>
                 <string>UIInterfaceOrientationLandscapeLeft</string>
                 <string>UIInterfaceOrientationLandscapeRight</string>
             </array>
-        </gap:config-file>
+        </gap:config-file>-->
         
-        <gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.1</string></gap:config-file>
+        <!--<gap:config-file platform="ios" parent="CFBundleVersion"><string>1.0.1</string></gap:config-file>-->
         
     </widget>

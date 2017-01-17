@@ -192,11 +192,11 @@ to see this page in browser
       var storedMetadata =  $.jStorage.get( tenant + '-metadata');
       
       
-    if (Math.abs(window.orientation) == 90) {
+    /*if (Math.abs(window.orientation) == 90) {
        // Landscape
             $("#appBase").css("background","url('img/bg_land.png')");
        }
-    else {
+    else {*/
         // Portrait
                 if(!storedMetadata) {
                     $("#appBase").css("background","url('"+tenant+"/background.png')");
@@ -205,7 +205,7 @@ to see this page in browser
                     var backgroundUrl = storedMetadata.backgroundurl + "?q=" + Math.random();
                     $("#appBase").css("background","url('" + backgroundUrl + "')");
                 }
-       }
+      // }
   /*added to fix initial loading ui issue - end*/
   
   
